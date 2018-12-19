@@ -3,12 +3,13 @@ module Lib where
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
--- firstOrEmpty :: [a] -> a
+firstOrEmpty :: [String] -> String
 firstOrEmpty xs =
   if not (null xs)
     then head xs
     else "empty"
 
+(+++) :: [a] -> [a] -> [a]
 xs +++ ys =
   if null xs
     then ys
@@ -52,3 +53,6 @@ data Gender
   deriving (Show, Eq)
 
 client = Individual (Person "Jack" "Smith" Male)
+
+clientName :: Client -> String
+clientName (GovOrg name) = name
